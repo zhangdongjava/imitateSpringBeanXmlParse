@@ -1,0 +1,37 @@
+<beans>
+	<bean name="test" class="imitateSpringBeanXmlParse.Bean">
+		<property name="lists">
+			<list>
+				<map>
+					<entry key="aa1">
+						<value>1</value>
+					</entry>
+					<entry key="aa2">
+						<value>2</value>
+					</entry>
+					<entry key="aa3">
+						<value>3</value>
+					</entry>
+					<entry key="aa4">
+						<value>4</value>
+					</entry>
+				</map>
+				<map>
+					<entry key="aa1">
+						<value>11</value>
+					</entry>
+					<entry key="aa2">
+						<value>22</value>
+					</entry>
+					<entry key="aa3">
+						<value>33</value>
+					</entry>
+					<entry key="aa4">
+						<value>44</value>
+					</entry>
+				</map>
+			</list>
+		</property>
+		<!-- <property name="lists"> </property> -->
+	</bean>
+</beans>
