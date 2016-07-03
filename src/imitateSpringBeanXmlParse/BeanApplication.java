@@ -2,13 +2,13 @@ package imitateSpringBeanXmlParse;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class BeanApplication {
 	
-	private HashMap<String, BeanDefinition> beanDefinitonMap = new HashMap<>();
-	
+	private ConcurrentHashMap<String, BeanDefinition> beanDefinitonMap = new ConcurrentHashMap<>();
+
 	public BeanApplication(String filePath){
 		ResourceLoader loader = new ResourceLoader();
 		new XmlBeanDefinitonReader(this).loadBeanDefinitons(loader.getResource(filePath));
@@ -17,7 +17,7 @@ public class BeanApplication {
 	public void register(String name,BeanDefinition object){
 		beanDefinitonMap.put(name, object);
 	}
-	
+
 	public Object getBean(String name){
 		Object obj = null;
 		BeanDefinition beanDefiniton = beanDefinitonMap.get(name);
@@ -42,7 +42,7 @@ public class BeanApplication {
 					throw new RuntimeException(propertyAttr.getName()+" not found seter method!");
 				}
 				try {
-					method.invoke(obj, propertyAttr.getValObj().getVal());
+					method.invoke(obj, propertyAttr.getVal());
 				} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 					e.printStackTrace();
 				}
@@ -52,7 +52,7 @@ public class BeanApplication {
 		}
 	}
 
-	
-	
-	
+
+
+
 }

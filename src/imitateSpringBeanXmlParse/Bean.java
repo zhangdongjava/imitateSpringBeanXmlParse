@@ -8,15 +8,15 @@ public class Bean implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	private List<Map<String, String>> lists;
+	private List<Map<String, List<String>>> lists;
 	
 	private String aaa;
 
-	public List<Map<String, String>> getLists() {
+	public List<Map<String, List<String>>> getLists() {
 		return lists;
 	}
 
-	public void setLists(List<Map<String, String>> lists) {
+	public void setLists(List<Map<String, List<String>>> lists) {
 		this.lists = lists;
 	}
 	

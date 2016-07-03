@@ -5,6 +5,11 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * list类型值
+ * @author zzzz
+ *
+ */
 public class ListVal implements AttrValue {
 
 	private List<AttrValue> values = new LinkedList<>();

@@ -25,7 +25,7 @@ public class DocumentReader {
 			Node node =  childs.item(i);
 			if(node instanceof Element){
 				BeanDefinitionHolder bean = delegate.getBeanDefiniton((Element)node);
-				register.register(bean.getName(), bean.getObj());
+				register.register(bean.getName(), bean.getBeanDefinition());
 			}
 			
 		}

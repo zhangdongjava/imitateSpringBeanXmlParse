@@ -2,6 +2,11 @@ package imitateSpringBeanXmlParse;
 
 import imitateSpringBeanXmlParse.val.AttrValue;
 
+/**
+ * property对象
+ * @author zzzz
+ *
+ */
 public class PropertyAttr {
 	
 	private String name;
@@ -18,6 +23,13 @@ public class PropertyAttr {
 
 	public AttrValue getValObj() {
 		return valObj;
+	}
+	
+	public Object getVal() {
+		if(valObj==null){
+			return null;
+		}
+		return valObj.getVal();
 	}
 
 	public void setValObj(AttrValue valObj) {

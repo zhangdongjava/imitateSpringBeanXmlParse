@@ -15,9 +15,8 @@ public class SystemFileResource implements FileResource {
 		try {
 			return new FileInputStream(systemPath);
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			throw new RuntimeException(systemPath+" not found!");
 		}
-		return null;
 	}
 
 }

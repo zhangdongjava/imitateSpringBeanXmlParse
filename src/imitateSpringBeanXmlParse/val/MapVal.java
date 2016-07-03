@@ -4,6 +4,11 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Set;
 
+/**
+ * map类型值
+ * @author zzzz
+ *
+ */
 public class MapVal implements AttrValue {
 
 	public HashMap<String, AttrValue> hashMap = new HashMap<>();

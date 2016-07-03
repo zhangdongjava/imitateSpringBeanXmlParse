@@ -5,7 +5,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import imitateSpringBeanXmlParse.val.AttrValue;
-import imitateSpringBeanXmlParse.val.EntryVal;
 import imitateSpringBeanXmlParse.val.GenericAttrValue;
 import imitateSpringBeanXmlParse.val.ListVal;
 import imitateSpringBeanXmlParse.val.MapVal;
@@ -30,7 +29,7 @@ public class BeanParserDelegate {
 		}
 		definition.setClassName(className);
 		holder.setName(name);
-		holder.setObj(definition);
+		holder.setBeanDefinition(definition);
 		setBeanDefinitionHolder(definition,element);
 		return holder;
 	}
@@ -38,7 +37,12 @@ public class BeanParserDelegate {
 	private void setBeanDefinitionHolder(BeanDefinition definition, Element element) {
 		parsePropertyElements(element,definition);
 	}
-
+	
+	/**
+	 * 解析bean的所有property标签
+	 * @param element
+	 * @param definition
+	 */
 	private void parsePropertyElements(Element element, BeanDefinition definition){
 		NodeList childs = element.getChildNodes();
 		for (int i=0;i<childs.getLength();i++) {
@@ -49,7 +53,12 @@ public class BeanParserDelegate {
 
 		}
 	}
-
+	
+	/**
+	 * 解析property标签
+	 * @param element
+	 * @param definition
+	 */
 	private void parsePropertyElement(Element element, BeanDefinition definition) {
 		PropertyAttr propertyAttr = new PropertyAttr();
 		propertyAttr.setName(element.getAttribute("name"));
@@ -57,7 +66,12 @@ public class BeanParserDelegate {
 		propertyAttr.setValObj(val);
 		definition.addProperValue(propertyAttr);
 	}
-
+	
+	/**
+	 * 获取Property标签value
+	 * @param element
+	 * @return
+	 */
 	private AttrValue getPropertyVal(Element element) {
 		if(element.hasAttribute("value")){
 			return new GenericAttrValue(element.getAttribute("value"));
@@ -67,7 +81,7 @@ public class BeanParserDelegate {
 	}
 	
 	/**
-	 * 解析Property元素子标签
+	 * 解析property元素子标签 只解析第一个Element
 	 * @param element
 	 * @return
 	 */
@@ -127,7 +141,7 @@ public class BeanParserDelegate {
 	private AttrValue parseEntryElement(Element element) {
 		AttrValue value = null;
 		value = parsePropertySubElement(element);
-		return new EntryVal(value);
+		return value;
 	}
 	
 	

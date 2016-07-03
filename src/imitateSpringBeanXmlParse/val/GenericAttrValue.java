@@ -1,5 +1,10 @@
 package imitateSpringBeanXmlParse.val;
 
+/**
+ * 基本值 默认是String
+ * @author zzzz
+ *
+ */
 public class GenericAttrValue implements AttrValue {
 
 	private String value;

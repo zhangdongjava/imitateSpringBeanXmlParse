@@ -3,19 +3,22 @@ package imitateSpringBeanXmlParse;
 public class BeanDefinitionHolder {
 
 	public String name;
-	public BeanDefinition obj;
+	
+	public BeanDefinition beanDefinition;
+	
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public BeanDefinition getObj() {
-		return obj;
+	public BeanDefinition getBeanDefinition() {
+		return beanDefinition;
 	}
-	public void setObj(BeanDefinition obj) {
-		this.obj = obj;
+	public void setBeanDefinition(BeanDefinition beanDefinition) {
+		this.beanDefinition = beanDefinition;
 	}
+
 
 
 }
